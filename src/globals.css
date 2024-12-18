@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* The formula starts here */
+    --radius: 0.5rem;
+    --hue: 0;
+    --primary-hue: calc(var(--hue) + 300);
+    --secondary-hue: calc(var(--hue) + 60);
+
+    --background: var(--hue), 50%, 90%;
+    --foreground: var(--hue), 50%, 10%;
+    --primary: var(--primary-hue), 80%, 20%;
+    --secondary: var(--secondary-hue), 80%, 20%;
+  }
+
+  .dark {
+    --background: var(--hue), 50%, 10%;
+    --foreground: var(--hue), 50%, 90%;
+    --primary: var(--primary-hue), 80%, 80%;
+    --secondary: var(--secondary-hue), 80%, 80%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
