@@ -7,7 +7,7 @@ import { Slider } from '@/components/slider'
 import { AppProvider } from './provider'
 
 export function App() {
-  const [hue, setHue] = useLocalStorage('hue', 0)
+  const [hue, setHue] = useLocalStorage('hue', 222)
 
   useEffect(() => {
     document.documentElement.style.setProperty('--hue', hue.toString())
