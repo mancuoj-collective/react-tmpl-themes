@@ -24,7 +24,7 @@ export function App() {
         <div className="flex items-center gap-5">
           <div className="text-sm font-medium">Hue</div>
           <Slider
-            className="w-72"
+            className="w-64 sm:w-72"
             value={[hue]}
             onValueChange={value => setHue(value[0])}
             min={0}
