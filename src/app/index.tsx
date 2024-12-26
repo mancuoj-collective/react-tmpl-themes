@@ -1,13 +1,16 @@
+import { useAtom } from 'jotai'
+import { atomWithStorage } from 'jotai/utils'
 import { useEffect } from 'react'
-import { useLocalStorage } from 'usehooks-ts'
 
 import { DarkModeToggle } from '@/components/dark-mode-toggle'
 import { Slider } from '@/components/slider'
 
 import { AppProvider } from './provider'
 
+const hueAtom = atomWithStorage('hue', 222)
+
 export function App() {
-  const [hue, setHue] = useLocalStorage('hue', 222)
+  const [hue, setHue] = useAtom(hueAtom)
 
   useEffect(() => {
     document.documentElement.style.setProperty('--hue', hue.toString())

@@ -18,8 +18,7 @@
     "jotai-effect": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-router": "latest",
-    "usehooks-ts": "latest"
+    "react-router": "latest"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "latest",
