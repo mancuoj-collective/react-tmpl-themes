@@ -1,20 +1,22 @@
-import { useAtom } from 'jotai'
+import { atom, useAtom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
-import { useEffect } from 'react'
 
 import { DarkModeToggle } from '@/components/dark-mode-toggle'
 import { Slider } from '@/components/slider'
 
 import { AppProvider } from './provider'
 
-const hueAtom = atomWithStorage('hue', 222)
+const baseAtom = atomWithStorage('hue', 222)
+const hueAtom = atom(
+  get => get(baseAtom),
+  (_, set, newHue: number) => {
+    set(baseAtom, newHue)
+    document.documentElement.style.setProperty('--hue', newHue.toString())
+  },
+)
 
 export function App() {
   const [hue, setHue] = useAtom(hueAtom)
-
-  useEffect(() => {
-    document.documentElement.style.setProperty('--hue', hue.toString())
-  }, [hue])
 
   return (
     <AppProvider>
