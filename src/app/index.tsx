@@ -4,7 +4,7 @@ import { atomWithStorage } from 'jotai/utils'
 import { DarkModeToggle } from '@/components/dark-mode-toggle'
 import { Slider } from '@/components/slider'
 
-import { AppProvider } from './provider'
+import { AppProvider } from './providers'
 
 const baseAtom = atomWithStorage('hue', 222)
 const hueAtom = atom(
